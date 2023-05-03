@@ -1,5 +1,5 @@
 import random
-r1 = random.randint(11, 15)
+r1 = random.randint(1, 5)
 
 
 class Ninja:
@@ -8,13 +8,13 @@ class Ninja:
         self.name = name
         self.strength = 10
         self.speed = 5
-        self.health = 10000
+        self.health = 100
 
     def show_stats(self):
         print(
             f"Name: {self.name}\nStrength: {self.strength}\nSpeed: {self.speed}\nHealth: {self.health}\n")
 
-    def attack(self, target):
+    def attack(self, target, dmg):
         dmg = round(((self.strength/2)*r1))
         target.dodge(self, dmg)
         return self
@@ -29,9 +29,9 @@ class Ninja:
                 f"You dodged, but {attacker.name}'s attack still grazed you.\nYou lost {dmg} health points!")
             return self
         else:
-            self.health -= dmg * 2
+            self.health -= dmg
             print(
-                f"{attacker.name}'s attack landed squarely. {dmg *2} health points lost!")
+                f"{attacker.name}'s attack landed squarely. {dmg} health points lost!")
             return self
 
     def meditation(self):
@@ -55,7 +55,7 @@ class Ninjaturtle(Ninja):
         super().__init__(name)
         self.strength += 50
 
-    def attack(self, target):
+    def attack(self, target, dmg):
         print(
             f"Nun-CHUCK!\n{self.name} threw their nun-chucks at {target.name}!")
-        super().attack(target)
+        super().attack(target, dmg)

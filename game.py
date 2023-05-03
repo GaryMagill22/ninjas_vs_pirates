@@ -14,7 +14,7 @@ while michelangelo.health > 0 and jack_sparrow.health > 0:
         player_input = input(
             "Decide!\n 1) Attack!\n 2) Meditate!\n <===========>")
         if player_input == "1":
-            michelangelo.attack(jack_sparrow)
+            michelangelo.attack(jack_sparrow, 10)
         elif player_input == "2":
             michelangelo.meditation()
         else:
